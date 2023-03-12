@@ -1,4 +1,5 @@
 import React from "react";
+import { addMovies } from "../actions";
 import { data } from "../data";
 import MovieCard from "./MovieCard";
 import Navbar from "./Navbar";
@@ -11,10 +12,7 @@ class App extends React.Component {
     store.subscribe(() => {
       this.forceUpdate();
     });
-    store.dispatch({
-      type: "ADD_MOVIES",
-      movies: data,
-    });
+    store.dispatch(addMovies(data));
   }
 
   render() {
